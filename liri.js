@@ -46,7 +46,13 @@ var movieThis = function (param) {
 		})
 		.catch(function (error) {
 			console.log(error);
-		});
+        });
+        if(param === "Mr.Nobody"){
+            console.log("--------------------------------------------------------------------");
+            console.log("If you haven't watched 'Mr. Nobody,' then you should: http://www.imdb.com/title/tt0485947/");
+            console.log("It's on Netflix!");
+
+        }
 }
 
 
@@ -80,10 +86,18 @@ switch (command) {
             concertThis(param);
         break;
     case ('spotify-this-song'):
-            spotifyThisSong(param);
+            if(param){
+                spotifyThisSong(param);
+            } else{
+                spotifyThisSong("The Sign")
+            }
         break;
     case ('movie-this'):
-            movieThis(param);
+            if(param){
+                movieThis(param);
+            } else {
+                movieThis("Mr.Nobody");
+            }
         break;
     case ('do-what-it-says'):
         doTheThing();
